@@ -1,3 +1,49 @@
-<p>
-  join works!
-</p>
+<h2 class="form-title font-weight-bold text-center mt-5 p-3">{{ "Title" | translate }}</h2>
+<div class="join-form">
+  <form class="form-max mb-5" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="mt-2 form-row p-3 form-box rounded">
+      <div class="col-12">
+        <input type="text" class="form-control" formControlName="name" placeholder="{{ 'FormNamePlaceholder' | translate }}"
+          [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+          <div *ngIf="f.name.errors.required">{{ 'FormRequiredName' | translate }}</div>
+        </div>
+      </div>
+      <div class="col-12 mt-3">
+        <input type="text" class="form-control" formControlName="email" placeholder="{{ 'FormEmailPlaceholder' | translate }}"
+          [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">{{ 'FormRequiredEmail' | translate }}</div>
+          <div *ngIf="f.email.errors.email">{{ 'FormWrongEmail' | translate }}</div>
+        </div>
+      </div>
+      <small id="emailHelpBlock" class="col-12 form-text text-muted mt-2">
+          {{ 'FormSmallPersonalData' | translate }}
+        </small>
+      <div class="col-12 mt-4">
+          <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck" (click)=activateJoinButton()>
+                <label class="form-check-label" for="gridCheck">
+                  {{ 'AcceptCondition' | translate }}
+                </label>
+                <small class="text-danger" [ngClass]="joinTerms ? 'd-none' : 'd-block'">{{ 'AcceptForm' | translate }}.</small>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-dark mt-2 w-100" [disabled]="!joinTerms">{{ 'SignUpButton' | translate }}</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="text-center mt-5">
+    <div class="mb-2">Copyright ©{{ copyrightYear }} {{ 'Title' | translate }}</div>
+    <div>
+      <a routerLink="/privacy" class="badge badge-light">{{ 'Closepage.Privacy' | translate }}</a> - <a routerLink="/terms" class="badge badge-light">{{ 'Closepage.Terms' | translate }}</a> - <a routerLink="/security"
+        class="badge badge-light">{{ 'Closepage.Security' | translate }}</a>
+    </div>
+    <div class="col-12 text-center mt-3">
+        <i class="fab fa-twitter ml-2 mr-2"></i>
+        <i class="fab fa-instagram ml-2 mr-2"></i>
+        <i class="fab fa-youtube ml-2 mr-2"></i>
+      </div>
+  </div>
