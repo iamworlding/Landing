@@ -1,0 +1,21 @@
+<div id="home" class="container">
+  <app-header></app-header>
+  <app-home-intro></app-home-intro>
+  <div class="text-center mt-5 mb-5">
+      <div class="mb-2">{{ 'GoalTitle' | translate }}</div>
+      <h4 class="mb-4">{{ 'Goal' | translate }}</h4>
+      <i class="fas fa-globe-americas fa-lg"></i>
+    </div>
+    <div class="section mt-5 rounded">
+  <app-home-what></app-home-what>
+  <app-home-why></app-home-why>
+  <app-home-where></app-home-where>
+  <app-home-colaborate></app-home-colaborate>
+</div>
+<div class="text-center mt-5 mb-5">
+    <div class="mb-3">{{ 'BottomSection' | translate }}</div>
+    <a routerLink="/join" class="btn p-3 shadow font-weight-bold white-hover">{{'SignUpButton' | translate }}</a>
+  </div>
+  <app-footer></app-footer>
+</div>
+<app-cookies></app-cookies>

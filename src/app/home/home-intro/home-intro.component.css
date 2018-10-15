@@ -1,0 +1,43 @@
+.front-top {
+  position: relative;
+  top: 20%;
+}
+.section-front {
+  height: 80vh;
+  background-color: white;
+}
+
+@media (max-width: 575.98px) and (orientation:portrait) {
+  .font-front-city {
+    font-size: 18px;
+  }
+  .font-front-shop {
+    font-size: 15px;
+  }
+  .front-top{
+    top: 10%;
+  }
+  .section-front {
+    height: 90vh;
+  }
+  h2 {
+    font-size: 25px;
+  }
+ }
+ @media (max-height: 575.98px) and (orientation:landscape) {
+  .font-front-city {
+    font-size: 18px;
+  }
+  .font-front-shop {
+    font-size: 15px;
+  }
+  .front-top{
+    top: 10%;
+  }
+  .section-front {
+    height: 150vh;
+  }
+  h2 {
+    font-size: 25px;
+  }
+ }

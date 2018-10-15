@@ -1,0 +1,36 @@
+.map {
+  height: 250px;
+  width: 270px;
+  margin: auto;
+}
+
+.square {
+height: 70px;
+width: 65px;
+display: inline-block;
+}
+#square-bottom {
+width: 92px;
+height: 70px;
+display: inline-block;
+}
+.rectangule {
+width: 180px;
+height: 60px;
+display: inline-block;
+}
+#rectangule-bottom {
+width: 190px;
+height: 60px;
+display: inline-block;
+}
+.origin {
+top: 40px;
+left: 20px;
+position: relative;
+}
+.target {
+top: -40px;
+left: 27px;
+position: relative;
+}

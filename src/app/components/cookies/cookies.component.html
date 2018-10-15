@@ -1,0 +1,9 @@
+<div class="shadow p-2 rounded position-fixed cookies w-75" [ngClass]="status ? 'd-none' : 'd-block'">
+    <button type="button" class="close" aria-label="Close" (click)=closeButton()>
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="">
+      <small>{{ 'Cookiepage.Text' | translate }}
+        <a href="#" class="badge badge-dark">{{ 'Cookiepage.Learn' | translate }}</a></small>
+    </div>
+  </div>
