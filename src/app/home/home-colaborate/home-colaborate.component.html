@@ -11,9 +11,8 @@
     <div class="mb-4">{{ 'Colaboratepage.DonationInfoGet' | translate }}</div>
   </div>
   <div class="col-lg-6 mb-5">
-    <div class="mt-4 mb-2 text-center">{{ 'Colaboratepage.DonationThanks' | translate }}</div>
-
-    <div id="paypal-button-container" class="text-center mt-lg-3"></div>
+    <div class="mt-lg-4 mb-2 text-center">{{ 'Colaboratepage.DonationThanks' | translate }}</div>
+    <ngx-paypal class="text-center mt-lg-3" [config]="payPalConfig"></ngx-paypal>
   </div>
 </div>
 
