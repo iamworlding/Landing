@@ -24,12 +24,12 @@ export class AppComponent implements OnInit {
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
 
-    this.eventsService.sendEvent('webVisit');
-
-    if (this.cookieService.check('uid')) {
-      console.log('false');
+    // Check cookies
+    if (this.cookieService.check('auid')) {
+      this.eventsService.sendEvent(this.cookieService.get('auid'), 'webVisit');
+    } else {
+      this.eventsService.sendEvent('-1', 'webVisit');
     }
-    console.log('true');
   }
 
   ngOnInit() {
