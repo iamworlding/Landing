@@ -12,4 +12,8 @@ export class HomeIntroComponent implements OnInit {
   ngOnInit() {
   }
 
+  analytics(place: string) {
+    alert(place);
+  }
+
 }

@@ -17,6 +17,7 @@ export class JoinComponent implements OnInit {
     constructor(private formBuilder: FormBuilder, private router: Router) { }
 
     ngOnInit() {
+      console.log('hello join');
       this.registerForm = this.formBuilder.group({
         name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]]

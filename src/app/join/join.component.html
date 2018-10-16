@@ -1,7 +1,8 @@
 <h2 class="form-title font-weight-bold text-center mt-5 p-3">{{ "Title" | translate }}</h2>
+<div class="form-subtitle text-center">Sign up!</div>
 <div class="join-form">
   <form class="form-max mb-5" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div class="mt-2 form-row p-3 form-box rounded">
+    <div class="form-row p-3 form-box rounded">
       <div class="col-12">
         <input type="text" class="form-control" formControlName="name" placeholder="{{ 'FormNamePlaceholder' | translate }}"
           [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
