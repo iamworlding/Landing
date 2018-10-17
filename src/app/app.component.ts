@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
     } else {
       this.userAnalytics().then(() => {
         this.eventsService.sendEvent(
-          this.cookieService.get('-1'), 'webVisit',
+          '-1', 'webVisit',
           this.ip, this.agent, this.referer, this.url, this.lat, this.lon, this.city, this.zip, this.country);
       });
     }
