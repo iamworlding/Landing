@@ -3,6 +3,7 @@ import { DeviceInfo } from 'ngx-device-detector';
 export class User {
   ip: string;
   agent: DeviceInfo;
+  device: string;
   referer: string;
   url: string;
   lat: number;

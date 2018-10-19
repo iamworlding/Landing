@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   cookieExists: boolean;
   referer: string; url: string;
   ip: string; lat: number; lon: number; city: string; zip: string; country: string;
-  agent: DeviceInfo;
+  agent: DeviceInfo; device: string;
   fields = 'country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,reverse,mobile,proxy,query,status,message';
 
   constructor(
@@ -42,20 +42,29 @@ export class AppComponent implements OnInit {
     if (this.cookieService.check('auid')) {
       this.userAnalytics().then(() => {
         this.eventsService.sendEvent(
-          this.cookieService.get('auid'), 'webVisit',
-          this.ip, this.agent, this.referer, this.url, this.lat, this.lon, this.city, this.zip, this.country);
+          this.cookieService.get('auid'), 'visit',
+          this.ip, this.agent, this.device, this.referer, this.url, this.lat, this.lon, this.city, this.zip, this.country);
       });
     } else {
       this.userAnalytics().then(() => {
         this.eventsService.sendEvent(
-          '-1', 'webVisit',
-          this.ip, this.agent, this.referer, this.url, this.lat, this.lon, this.city, this.zip, this.country);
+          '-1', 'visit',
+          this.ip, this.agent, this.device, this.referer, this.url, this.lat, this.lon, this.city, this.zip, this.country);
       });
     }
   }
 
   userAnalytics() {
     this.agent = this.deviceService.getDeviceInfo();
+    if ( this.deviceService.isMobile() ) {
+      this.device = 'mobile';
+    } else if ( this.deviceService.isTablet() ) {
+      this.device = 'tablet';
+    } else if ( this.deviceService.isDesktop() ) {
+      this.device = 'desktop';
+    } else {
+      this.device = 'unknown';
+    }
     this.referer = this.document.referrer;
     this.url = this.document.URL;
     const promise = new Promise((resolve, reject) => {

@@ -4,6 +4,7 @@ export class Event {
   auid: string;
   origin: string;
   type: string;
-  date: Date;
+  date: string;
+  date_int: number;
   user: User;
 }
