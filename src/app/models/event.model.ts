@@ -1,4 +1,4 @@
-import { User } from './user.model';
+import { UserEvent } from './userevent.model';
 
 export class Event {
   auid: string;
@@ -6,5 +6,5 @@ export class Event {
   type: string;
   date: string;
   date_int: number;
-  user: User;
+  user: UserEvent;
 }

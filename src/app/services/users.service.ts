@@ -1,12 +1,13 @@
-import { Event } from '../models/event.model';
-import { UserEvent } from '../models/userevent.model';
+import { User } from '../models/user.model';
+import { TranslateService } from '@ngx-translate/core';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
-import { DeviceInfo } from 'ngx-device-detector';
+import { Observable } from 'rxjs';
+import { Response } from '../models/response.model';
 
 @Injectable({providedIn: 'root'})
-export class EventsService {
+export class UserService {
   d = new Date();
   month = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
   yearDate: string;
@@ -14,8 +15,9 @@ export class EventsService {
   dayDate: string;
   hoursDate: string;
   minutesDate: string;
+  dataUser: any;
 
-  constructor(private http: HttpClient, private cookieService: CookieService) {
+  constructor(private http: HttpClient, private cookieService: CookieService, private translate: TranslateService) {
     this.yearDate = this.getYear();
     this.monthDate = this.getMonth();
     this.dayDate = this.getDay();
@@ -23,22 +25,19 @@ export class EventsService {
     this.minutesDate = this.getMinutes();
   }
 
-  sendEvent(auid: string, typeEvent: string, ip: string, agent: DeviceInfo,
-    device: string , referer: string, url: string, lat: number, lon: number, city: string, zip: string, country: string) {
-    const user: UserEvent = {
-      ip: ip, agent: agent, device: device, referer: referer, url: url, lat: lat, lon: lon, city: city, zip: zip, country: country};
-    const event: Event = {auid: auid, origin: 'landingPage', type: typeEvent,
-    date: this.yearDate + '/' + this.monthDate + '/' + this.dayDate + ' ' + this.hoursDate + ':' + this.minutesDate,
-    date_int: parseInt(this.yearDate + this.monthDate + this.dayDate, 10), user};
-    if (auid !== '-1') {
-      this.http.post('http://localhost:3000/api/event', event)
-      .subscribe();
-    } else {
-      this.http.post<{message: string, auid: string}>('http://localhost:3000/api/event', event)
+  userJoin(name: string, email: string): Observable<Response> {
+    const data = new Observable<Response>(observer => {
+    const user: User = {auid: this.cookieService.get('auid'),
+      name: name, email: email, language: this.translate.getBrowserLang(),
+      date: this.yearDate + '/' + this.monthDate + '/' + this.dayDate + ' ' + this.hoursDate + ':' + this.minutesDate,
+      date_int: parseInt(this.yearDate + this.monthDate + this.dayDate, 10)};
+    this.http.post<{message: String}>('http://localhost:3000/api/user/join', user)
       .subscribe((responseData) => {
-        this.cookieService.set('auid', responseData.auid);
+        this.dataUser = responseData;
+        observer.next(this.dataUser);
       });
-    }
+    });
+    return data;
   }
 
   getYear() {

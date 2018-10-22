@@ -23,6 +23,7 @@
   "FormSmallPersonalData": "We send you to this email, your promotion codes and your confirm registration mail.",
   "FormSmallLocalData": "We use your location to notice you when your city is integrated or if it's already to send you new routes available.",
   "AcceptCondition": "I accept Worlding terms and privacity policy.",
+  "JoinThanks": "{{ this.registerForm.value }} Thanks for your registration.",
   "Madrid":"Madrid",
   "Barcelona":"Barcelona",
   "Paris":"Paris",

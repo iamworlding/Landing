@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { DOCUMENT } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
@@ -23,18 +22,17 @@ export class AppComponent implements OnInit {
 
   constructor(
     private translate: TranslateService,
-    private router: Router,
     private cookieService: CookieService,
     public eventsService: EventsService,
     private http: HttpClient,
     private deviceService: DeviceDetectorService,
     @Inject(DOCUMENT) private document: any
   ) {
-    translate.addLangs(['en', 'es']);
-    translate.setDefaultLang('en');
+    this.translate.addLangs(['en', 'es']);
+    this.translate.setDefaultLang('en');
 
     const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
+    this.translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
   }
 
   ngOnInit() {

@@ -23,6 +23,7 @@
   "FormSmallPersonalData": "Le enviaremos un mail a esta dirección, su código de promoción y la confirmación de su registro.",
   "FormSmallLocalData": "Usamos su localización para notificarle, cuando su ciudad esté integrada o con la creación de nuevas rutas.",
   "AcceptCondition": "Acepto los términos de Worlding y su política de privacidad.",
+  "JoinThanks": "{{ this.registerForm.value }}, gracias por tu registro.",
   "Madrid":"Madrid",
   "Barcelona":"Barcelona",
   "Paris":"París",
