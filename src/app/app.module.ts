@@ -28,6 +28,7 @@ import { TermsComponent } from './terms/terms.component';
 import { SecurityComponent } from './security/security.component';
 import { HomeIntroComponent } from './home/home-intro/home-intro.component';
 import { ContactComponent } from './contact/contact.component';
+import { ConstructionComponent } from './construction/construction.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -51,7 +52,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TermsComponent,
     SecurityComponent,
     HomeIntroComponent,
-    ContactComponent
+    ContactComponent,
+    ConstructionComponent
   ],
   imports: [
     BrowserModule,

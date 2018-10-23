@@ -7,6 +7,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
 import { SecurityComponent } from './security/security.component';
 import { ContactComponent } from './contact/contact.component';
+import { ConstructionComponent } from './construction/construction.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'terms', component: TermsComponent},
   { path: 'security', component: SecurityComponent},
   { path: 'contact', component: ContactComponent},
+  { path: 'construction', component: ConstructionComponent},
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' }
 ];
