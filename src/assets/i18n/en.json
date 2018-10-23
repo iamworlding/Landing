@@ -41,6 +41,10 @@
   "ClaimSm23": "with",
   "Download": "Download for free our app on:",
   "Everybody": "Everybody makes",
+  "SignUpTitle": "Sign up",
+  "SendEmail": "We will send you an email to confirm your registration.",
+  "CheckEmail": "Please check your inbox or your span folder. If you receive your mail in span, please indicate our mails is not spam.",
+  "ReceiveEmail": "If you don't receive the mail, please contact with us.",
   "Whatpage": {
     "Title": "What's",
     "ConceptTitle": "It's a new concept",
@@ -131,6 +135,12 @@
     "Privacy": "Privacy",
     "Terms": "Terms",
     "Security": "Security"
+  },
+  "ContactPage": {
+    "SendMail": "Send mail",
+    "TellUs": "Tell us ...",
+    "EmailTip": "We will send you a confirm mail with your question, and we will answer you to this direction.",
+    "Title": "What do you want to ask or tell us?"
   },
   "Cookiepage": {
     "Text": "Hi there, we use cookies to offer you a better browsing experience and to analyze site traffic. By continuing to use our website, you consent to the use of these cookies.",

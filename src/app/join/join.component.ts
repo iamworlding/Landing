@@ -1,8 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../services/users.service';
+import { HttpClient } from '@angular/common/http';
+import { DOCUMENT } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
+import { DeviceDetectorService, DeviceInfo } from 'ngx-device-detector';
+import { EventsService } from '../services/events.service';
+import { nextTick } from 'q';
 
 
 @Component({
@@ -16,13 +22,23 @@ export class JoinComponent implements OnInit {
     submitted = false;
     joinTerms = false;
     copyrightYear = new Date().getFullYear();
+    referer: string; url: string;
+    ip: string; lat: number; lon: number; city: string; zip: string; country: string;
+    agent: DeviceInfo; device: string;
+    fields = 'country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,reverse,mobile,proxy,query,status,message';
+
 
     constructor(private formBuilder: FormBuilder,
       private router: Router,
       private translate: TranslateService,
-      private user: UserService) { }
+      private user: UserService, public eventsService: EventsService,
+      private cookieService: CookieService,
+      private http: HttpClient,
+      private deviceService: DeviceDetectorService,
+      @Inject(DOCUMENT) private document: any) { }
 
     ngOnInit() {
+      window.scrollTo(0, 0);
       this.registerForm = this.formBuilder.group({
         name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]]
@@ -41,29 +57,57 @@ export class JoinComponent implements OnInit {
         }
 
         this.user.userJoin(this.registerForm.value.name, this.registerForm.value.email).subscribe(res => {
-          console.log(res);
           if (res.message === 'Register completed') {
-            if (this.translate.getBrowserLang() === 'en') {
-              alert(this.registerForm.value.name + ', thanks for your registration!');
-            } else {
-              alert('¡' + this.registerForm.value.name + ', gracias por tu registro!');
-            }
-          } else {
-            if (this.translate.getBrowserLang() === 'en') {
-              alert(this.registerForm.value.name + ', this email is registered!');
-              return;
-            } else {
-              alert('¡' + this.registerForm.value.name + ', este email esta registrado!');
-              return;
-            }
+            this.userAnalytics().then(() => {
+              this.eventsService.sendEvent(
+                this.cookieService.get('auid'), 'join',
+                this.ip, this.agent, this.device, this.referer, this.url, this.lat, this.lon, this.city, this.zip, this.country);
+                return;
+            }).then(() => {
+              this.router.navigate(['/']);
+            });
           }
         });
 
-        this.router.navigate(['/']);
     }
 
     activateJoinButton() {
       this.joinTerms = !this.joinTerms;
+    }
+
+    userAnalytics() {
+      this.agent = this.deviceService.getDeviceInfo();
+      if ( this.deviceService.isMobile() ) {
+        this.device = 'mobile';
+      } else if ( this.deviceService.isTablet() ) {
+        this.device = 'tablet';
+      } else if ( this.deviceService.isDesktop() ) {
+        this.device = 'desktop';
+      } else {
+        this.device = 'unknown';
+      }
+      this.referer = this.document.referrer;
+      this.url = this.document.URL;
+      const promise = new Promise((resolve, reject) => {
+        this.http
+        .get<{ query: string, lat: number, lon: number, city: string, zip: string, country: string }>(
+          'http://ip-api.com/json/?fields=' + this.fields)
+          .toPromise()
+          .then(res => { // Success
+              this.ip = res.query;
+              this.lat = res.lat;
+              this.lon = res.lon;
+              this.city = res.city;
+              this.zip = res.zip;
+              this.country = res.country;
+              resolve();
+            },
+            msg => { // Error
+              reject(msg);
+            }
+          );
+      });
+      return promise;
     }
 }
 

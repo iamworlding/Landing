@@ -13,7 +13,6 @@ import { EventsService } from './services/events.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  cookieValue = 'UNKNOWN';
   cookieExists: boolean;
   referer: string; url: string;
   ip: string; lat: number; lon: number; city: string; zip: string; country: string;

@@ -34,23 +34,23 @@ export class HomeColaborateComponent implements OnInit {
           layout: 'vertical'
         },
         onAuthorize: (data, actions) => {
-          console.log('Authorize');
+          // console.log('Authorize');
           return of(undefined);
         },
         onPaymentComplete: (data, actions) => {
-          console.log('OnPaymentComplete');
+          // console.log('OnPaymentComplete');
         },
         onCancel: (data, actions) => {
-          console.log('OnCancel');
+          // console.log('OnCancel');
         },
         onError: err => {
-          console.log('OnError');
+          // console.log('OnError');
         },
         onClick: () => {
-          console.log('onClick');
+          // console.log('onClick');
         },
         validate: (actions) => {
-          console.log(actions);
+          // console.log(actions);
         },
         transactions: [
           {

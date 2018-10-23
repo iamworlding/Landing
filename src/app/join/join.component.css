@@ -1,5 +1,5 @@
 .join-form {
-  max-width: 400px;
+  max-width: 500px;
   margin: auto;
   background-color: white;
 }
@@ -10,10 +10,13 @@
 .form-title {
   background-color: white;
   margin: auto;
-  max-width: 400px;
+  max-width: 500px;
 }
 .form-subtitle {
   background-color: white;
   margin: auto;
-  max-width: 400px;
+  max-width: 500px;
+}
+.text-form {
+  color: black;
 }

@@ -1,7 +1,29 @@
 <div class="container">
     <app-header></app-header>
-    <p>
-      contact works!
-    </p>
+    <div class='section'>
+      <h4 class="text-center mb-5">{{ 'ContactPage.Title' | translate}}</h4>
+        <div class="w-75 m-auto">
+            <form class="form-max" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+              <div class="form-row">
+                <div class="col-12 mb-4">
+                  <input type="text" class="form-control input-form" formControlName="email" placeholder="{{ 'FormEmailPlaceholder' | translate }}"
+                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">{{ 'FormRequiredEmail' | translate }}</div>
+                    <div *ngIf="f.email.errors.email">{{ 'FormWrongEmail' | translate }}</div>
+                  </div>
+                  <small class="text-muted">{{ 'ContactPage.EmailTip' | translate}}</small>
+                </div>
+                <div class="col-12">
+                  <label for="exampleFormControlTextarea1">{{ 'ContactPage.TellUs' | translate}}</label>
+                  <textarea class="form-control input-form" formControlName="message" rows="15"></textarea>
+                </div>
+                <div class="col-12 mt-4">
+                      <button type="submit" class="btn btn-dark mt-2">{{ 'ContactPage.SendMail' | translate}}</button>
+                </div>
+              </div>
+            </form>
+          </div>
+    </div>
     <app-footer></app-footer>
   </div>
