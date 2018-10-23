@@ -145,5 +145,17 @@
   "Cookiepage": {
     "Text": "Hola, usamos cookies para ofrecerte una mejor experiencia y analizar el tráfico del sitio. Si continuas navengando, consientes el uso de esas cookies.",
     "Learn": "Saber más"
+  },
+  "UnderConstruction": {
+    "Title": "Esta página está bajo construcción",
+    "Subtitle": "Si quiere más información sobre este apartado, por favor contacte con nosotros."
+  },
+  "NotFound": {
+    "Title": "Algo fue mal ...",
+    "Subtitle": "¡Lo sentimos! Por favor inténtelo de nuevo o contacte con nostros para solucionar el problema."
+  },
+  "Signature": {
+    "Thanks": "Gracias",
+    "Team": "Equipo de Worlding"
   }
 }

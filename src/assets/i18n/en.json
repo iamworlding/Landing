@@ -145,5 +145,17 @@
   "Cookiepage": {
     "Text": "Hi there, we use cookies to offer you a better browsing experience and to analyze site traffic. By continuing to use our website, you consent to the use of these cookies.",
     "Learn": "Learn more"
+  },
+  "UnderConstruction": {
+    "Title": "This page is under construction",
+    "Subtitle": "If you want information about it, please contact with us."
+  },
+  "NotFound": {
+    "Title": "Something is wrong ...",
+    "Subtitle": "Sorry! Please try again or contact us to solve the problem."
+  },
+  "Signature": {
+    "Thanks": "Thanks",
+    "Team": "Worlding Team"
   }
 }
