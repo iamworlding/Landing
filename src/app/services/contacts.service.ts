@@ -7,7 +7,7 @@ import { Response } from '../models/response.model';
 
 import { environment } from '../../environments/environment';
 
-const BACKEND_URL = environment.apiUrl + '/event/';
+const BACKEND_URL = environment.apiUrl + '/contact/';
 
 @Injectable({providedIn: 'root'})
 export class ContactService {
