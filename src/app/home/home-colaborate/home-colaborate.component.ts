@@ -6,6 +6,10 @@ import {
   PayPalIntegrationType
 } from 'ngx-paypal';
 
+import { environment } from 'src/environments/environment';
+
+const BACKEND_CLIENT_SANDBOX = environment.paypalClientSandbox;
+
 @Component({
   selector: 'app-home-colaborate',
   templateUrl: './home-colaborate.component.html',
@@ -27,7 +31,7 @@ export class HomeColaborateComponent implements OnInit {
         commit: true,
         client: {
           sandbox:
-            'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R'
+            BACKEND_CLIENT_SANDBOX
         },
         button: {
           label: 'paypal',

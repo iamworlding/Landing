@@ -5,6 +5,10 @@ import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { DeviceInfo } from 'ngx-device-detector';
 
+import { environment } from '../../environments/environment';
+
+const BACKEND_URL = environment.apiUrl + '/event/';
+
 @Injectable({providedIn: 'root'})
 export class EventsService {
   d = new Date();
@@ -31,10 +35,10 @@ export class EventsService {
     date: this.yearDate + '/' + this.monthDate + '/' + this.dayDate + ' ' + this.hoursDate + ':' + this.minutesDate,
     date_int: parseInt(this.yearDate + this.monthDate + this.dayDate, 10), user};
     if (auid !== '-1') {
-      this.http.post('http://localhost:3000/api/event', event)
+      this.http.post(BACKEND_URL, event)
       .subscribe();
     } else {
-      this.http.post<{message: string, auid: string}>('http://localhost:3000/api/event', event)
+      this.http.post<{message: string, auid: string}>(BACKEND_URL, event)
       .subscribe((responseData) => {
         this.cookieService.set('auid', responseData.auid);
       });

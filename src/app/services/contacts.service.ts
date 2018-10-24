@@ -5,6 +5,10 @@ import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { Response } from '../models/response.model';
 
+import { environment } from '../../environments/environment';
+
+const BACKEND_URL = environment.apiUrl + '/event/';
+
 @Injectable({providedIn: 'root'})
 export class ContactService {
   d = new Date();
@@ -30,7 +34,7 @@ export class ContactService {
       email: email, language: language, message: message,
       date: this.yearDate + '/' + this.monthDate + '/' + this.dayDate + ' ' + this.hoursDate + ':' + this.minutesDate,
       date_int: parseInt(this.yearDate + this.monthDate + this.dayDate, 10)};
-    this.http.post<{message: String}>('http://localhost:3000/api/contact', contact)
+    this.http.post<{message: String}>(BACKEND_URL, contact)
       .subscribe((responseData) => {
         this.dataContact = responseData;
         observer.next(this.dataContact);

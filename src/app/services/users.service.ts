@@ -5,6 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { Response } from '../models/response.model';
+import { environment } from '../../environments/environment';
+
+const BACKEND_URL = environment.apiUrl + '/user/join/';
 
 @Injectable({providedIn: 'root'})
 export class UserService {
@@ -31,7 +34,7 @@ export class UserService {
       name: name, email: email, language: this.translate.getBrowserLang(),
       date: this.yearDate + '/' + this.monthDate + '/' + this.dayDate + ' ' + this.hoursDate + ':' + this.minutesDate,
       date_int: parseInt(this.yearDate + this.monthDate + this.dayDate, 10)};
-    this.http.post<{message: String}>('http://localhost:3000/api/user/join', user)
+    this.http.post<{message: String}>(BACKEND_URL, user)
       .subscribe((responseData) => {
         this.dataUser = responseData;
         observer.next(this.dataUser);
