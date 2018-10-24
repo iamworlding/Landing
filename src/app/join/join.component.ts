@@ -10,7 +10,7 @@ import { DeviceDetectorService, DeviceInfo } from 'ngx-device-detector';
 import { EventsService } from '../services/events.service';
 import { environment } from '../../environments/environment';
 
-const BACKEND_API_IP = environment.apiIP;
+const BACKEND_API_IP = environment.apiIp;
 
 
 @Component({
@@ -68,6 +68,12 @@ export class JoinComponent implements OnInit {
             }).then(() => {
               this.router.navigate(['/']);
             });
+          } else {
+            if (this.translate.getBrowserLang() === 'en') {
+              alert(res.message);
+            } else {
+              alert('El correo electrónico ya está registrado');
+            }
           }
         });
 

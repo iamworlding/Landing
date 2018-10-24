@@ -7,6 +7,10 @@ import { DeviceDetectorService, DeviceInfo } from 'ngx-device-detector';
 
 import { EventsService } from './services/events.service';
 
+import { environment } from '../environments/environment';
+
+const BACKEND_API_IP = environment.apiIp;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -67,7 +71,7 @@ export class AppComponent implements OnInit {
     const promise = new Promise((resolve, reject) => {
       this.http
       .get<{ query: string, lat: number, lon: number, city: string, zip: string, country: string }>(
-        'http://ip-api.com/json/?fields=' + this.fields)
+        BACKEND_API_IP + this.fields)
         .toPromise()
         .then(res => { // Success
             this.ip = res.query;
