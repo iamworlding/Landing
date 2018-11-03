@@ -5,6 +5,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { YoutubePlayerModule } from 'ngx-youtube-player';
 import { CookieService } from 'ngx-cookie-service';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 
@@ -29,6 +30,7 @@ import { SecurityComponent } from './security/security.component';
 import { HomeIntroComponent } from './home/home-intro/home-intro.component';
 import { ContactComponent } from './contact/contact.component';
 import { ConstructionComponent } from './construction/construction.component';
+import { HomeVideoComponent } from './home/home-video/home-video.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -53,12 +55,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     SecurityComponent,
     HomeIntroComponent,
     ContactComponent,
-    ConstructionComponent
+    ConstructionComponent,
+    HomeVideoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxPayPalModule,
+    YoutubePlayerModule,
     ReactiveFormsModule,
     HttpClientModule,
     TranslateModule.forRoot({

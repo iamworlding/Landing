@@ -1,9 +1,21 @@
 <nav class="sticky-top navbar navbar-light bg-white">
   <a routerLink="/"><span class="navbar-brand mb-0 h1 font-weight-bold">{{ 'Title' | translate }}</span></a>
   <div role="group">
-    <small class="d-none d-sm-inline align-text-bottom mr-3">{{ 'SocialName' | translate }}</small>
-    <i class="fab fa-twitter text-primary ml-2 mr-2"></i>
-    <i class="fab fa-instagram text-warning ml-2 mr-2"></i>
-    <i class="fab fa-youtube text-danger ml-2 mr-2"></i>
+    <small class="d-inline align-text-bottom mr-3">{{ 'Share' | translate }} <span class="font-weight-bold">{{ 'Title' | translate }}</span></small>
+    <a class="mr-2" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.iamworlding.com&quote=" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;">
+      <i class="fab fa-facebook-square color-darkBlue"></i>
+    </a>
+    <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.iamworlding.com&text=:%20http%3A%2F%2Fwww.iamworlding.com&via=IamWorlding" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;">
+      <i class="fab fa-twitter text-primary ml-2 mr-2"></i>
+    </a>
+    <a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.iamworlding.com" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;">
+      <i class="fab fa-google-plus-g text-danger ml-2 mr-2"></i>
+    </a>
+    <a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.iamworlding.com&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;">
+      <i class="fab fa-pinterest text-danger ml-2 mr-2"></i>
+    </a>
+    <a href="mailto:?subject=&body=:%20http%3A%2F%2Fwww.iamworlding.com" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;">
+        <i class="fas fa-envelope text-secondary ml-2"></i>
+    </a>
   </div>
 </nav>

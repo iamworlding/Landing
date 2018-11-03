@@ -35,7 +35,9 @@ export class HomeColaborateComponent implements OnInit {
         },
         button: {
           label: 'paypal',
-          layout: 'vertical'
+          size: 'medium',
+          color: 'gold'
+          // layout: 'vertical'
         },
         onAuthorize: (data, actions) => {
           // console.log('Authorize');

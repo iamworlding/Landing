@@ -14,23 +14,37 @@ width: 92px;
 height: 70px;
 display: inline-block;
 }
-.rectangule {
-width: 180px;
+.rectangule-1 {
+width: 141px;
 height: 60px;
 display: inline-block;
 }
+.rectangule-2 {
+  width: 66px;
+  height: 60px;
+  display: inline-block;
+  left: 24px;
+  position: relative;
+  }
 #rectangule-bottom {
-width: 190px;
+width: 136px;
 height: 60px;
 display: inline-block;
+left: 45px;
+position: relative;
 }
-.origin {
-top: 40px;
+.origin1 {
+top: -18px;
 left: 20px;
 position: relative;
 }
+.origin2 {
+  top: -18px;
+  left: 72px;
+  position: relative;
+  }
 .target {
 top: -40px;
-left: 27px;
+left: 6px;
 position: relative;
 }

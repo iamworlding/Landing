@@ -3,13 +3,13 @@
 <div class="join-form">
   <form class="form-max mb-5" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-row p-3 form-box rounded">
-      <div class="col-12">
+      <!-- <div class="col-12">
         <input type="text" class="form-control text-form" formControlName="name" placeholder="{{ 'FormNamePlaceholder' | translate }}"
           [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
         <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
           <div *ngIf="f.name.errors.required">{{ 'FormRequiredName' | translate }}</div>
         </div>
-      </div>
+      </div> -->
       <div class="col-12 mt-3">
         <input type="text" class="form-control text-form" formControlName="email" placeholder="{{ 'FormEmailPlaceholder' | translate }}"
           [ngClass]="{ 'is-invalid': submitted && f.email.errors }">

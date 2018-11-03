@@ -42,7 +42,7 @@ export class JoinComponent implements OnInit {
     ngOnInit() {
       window.scrollTo(0, 0);
       this.registerForm = this.formBuilder.group({
-        name: ['', Validators.required],
+        name: '',
         email: ['', [Validators.required, Validators.email]]
       });
     }
