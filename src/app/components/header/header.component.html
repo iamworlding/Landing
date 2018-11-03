@@ -2,8 +2,11 @@
   <a routerLink="/"><span class="navbar-brand mb-0 h1 font-weight-bold">{{ 'Title' | translate }}</span></a>
   <div role="group">
     <small class="d-inline align-text-bottom mr-3">{{ 'Share' | translate }} <span class="font-weight-bold">{{ 'Title' | translate }}</span></small>
-    <a class="mr-2" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.iamworlding.com&quote=" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;">
-      <i class="fab fa-facebook-square color-darkBlue"></i>
+    <a class="mr-2" href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text=www.iamworlding.com" target="_blank">
+      <i class="fab fa-whatsapp text-success"></i>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.iamworlding.com&quote=" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;">
+      <i class="fab fa-facebook-square color-darkBlue ml-2 mr-2"></i>
     </a>
     <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.iamworlding.com&text=:%20http%3A%2F%2Fwww.iamworlding.com&via=IamWorlding" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;">
       <i class="fab fa-twitter text-primary ml-2 mr-2"></i>
